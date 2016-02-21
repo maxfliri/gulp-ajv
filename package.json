@@ -1,0 +1,14 @@
+{
+  "name": "gulp-ajv",
+  "version": "0.0.1",
+  "description": "Gulp plugin for ajv JSON schema validator",
+  "dependencies": {
+    "ajv": "^3.7.0",
+    "coffee-script": "^1.10.0",
+    "gulp-util": "^3.0.7",
+    "through2": "^2.0.1"
+  },
+  "main": "./src/gulp-ajv.coffee",
+  "author": "Massimiliano Fliri",
+  "license": "MIT"
+}
