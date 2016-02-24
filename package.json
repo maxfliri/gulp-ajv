@@ -8,7 +8,18 @@
     "gulp-util": "^3.0.7",
     "through2": "^2.0.1"
   },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "event-stream": "^3.3.2",
+    "gulp": "^3.9.1",
+    "gulp-mocha": "^2.2.0",
+    "mocha": "^2.4.5"
+  },
   "main": "./src/gulp-ajv.coffee",
   "author": "Massimiliano Fliri",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maxfliri/gulp-ajv"
+  }
 }
