@@ -21,5 +21,18 @@ describe 'gulp-ajv', ->
         expect(file.ajv.valid).to.be.true
         done()
 
+    it 'should report an invalid file', (done) ->
+      fs.writeFileSync('schema.json', JSON.stringify({ properties: {id: { type: "number" }}}))
+
+      json = new gutil.File(path: 'test.json', contents: new Buffer(JSON.stringify({id: "abcd"})))
+
+      gulpAjv = ajv('schema.json')
+
+      gulpAjv.write(json)
+
+      gulpAjv.once 'data', (file) ->
+        expect(file.ajv.valid).to.be.false
+        done()
+
     afterEach ->
       fs.unlinkSync('schema.json')
