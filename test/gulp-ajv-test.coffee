@@ -9,7 +9,7 @@ expect = chai.expect
 
 describe 'gulp-ajv', ->
   describe 'in buffer mode', ->
-    it 'should do something', (done) ->
+    it 'should check a valid file', (done) ->
       fs.writeFileSync('schema.json', '{}')
       json = new gutil.File(path: 'test.json', contents: new Buffer('{}'))
 
