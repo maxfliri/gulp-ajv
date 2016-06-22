@@ -19,6 +19,7 @@ describe 'gulp-ajv', ->
 
       gulpAjv.once 'data', (file) ->
         expect(file.ajv.valid).to.be.true
+        expect(file.ajv.errors).to.be.null
         done()
 
     it 'should report an invalid file', (done) ->
@@ -32,6 +33,7 @@ describe 'gulp-ajv', ->
 
       gulpAjv.once 'data', (file) ->
         expect(file.ajv.valid).to.be.false
+        expect(file.ajv.errors).to.have.lengthOf 1
         done()
 
     afterEach ->
