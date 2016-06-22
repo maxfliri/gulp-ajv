@@ -19,7 +19,7 @@ report = (file) ->
 validate = (data, schema) ->
     ajv = new Ajv(allErrors: true)
     valid = ajv.validate(schema, data)
-    { valid: valid, errors: ajv.errors }
+    { valid: valid, errors: ajv.errors || [] }
 
 gulpAjv = (schemaFile, encoding = 'utf8') ->
     failed = false
