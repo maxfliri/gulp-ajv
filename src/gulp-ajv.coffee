@@ -3,19 +3,6 @@ Ajv     = require 'ajv'
 fs      = require 'fs'
 util    = require 'gulp-util'
 
-describe = (error) ->
-    if error.keyword is 'additionalProperties'
-        "should NOT have property #{error.params.additionalProperty}"
-    else
-        error.message
-
-report = (file) ->
-    if file.ajv.valid
-        util.log util.colors.green file.relative
-    else
-        util.log util.colors.red file.relative
-        util.log util.colors.red "  #{describe error}" for error in file.ajv.errors
-
 validate = (data, schema) ->
     ajv = new Ajv(allErrors: true)
     valid = ajv.validate(schema, data)
@@ -29,7 +16,6 @@ gulpAjv = (schemaFile, encoding = 'utf8') ->
         data = JSON.parse file.contents
         file.ajv = validate data, schema
         failed = true if not file.ajv.valid
-        report file
         callback null, file
 
     flush = (callback) ->
