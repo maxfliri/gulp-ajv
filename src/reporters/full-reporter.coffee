@@ -1,11 +1,7 @@
 through = require 'through2'
 util    = require 'gulp-util'
 
-describe = (error) ->
-    if error.keyword is 'additionalProperties'
-        "should NOT have property #{error.params.additionalProperty}"
-    else
-        error.message
+describe = require './describe-error'
 
 report = (file, logger) ->
   if file.ajv.valid
