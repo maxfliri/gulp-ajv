@@ -1,9 +1,9 @@
-output = ''
+output = []
 
 logger = (msg) ->
-  output += msg + '\n'
+  output.push msg
 
 logger.output = () ->
-  output
+  output.join '\n'
 
 module.exports = logger

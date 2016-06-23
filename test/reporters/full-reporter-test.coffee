@@ -18,4 +18,4 @@ describe 'full-reporter', ->
 
     reporter.write(valid_file)
 
-    expect(logger.output()).to.eql green('a-valid-file') + '\n'
+    expect(logger.output()).to.eql green('a-valid-file')
