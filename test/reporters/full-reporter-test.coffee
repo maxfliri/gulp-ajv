@@ -7,6 +7,8 @@ reporter = require '../../src/reporters/full-reporter'
 
 expect = chai.expect
 
+green = (text) -> '\u001b[32m' + text + '\u001b[39m'
+
 describe 'full-reporter', ->
   it 'should log valid files', () ->
     valid_file = new gutil.File(path: 'a-valid-file')
@@ -16,4 +18,4 @@ describe 'full-reporter', ->
 
     reporter.write(valid_file)
 
-    expect(logger.output()).to.eql '\u001b[32ma-valid-file\u001b[39m\n'
+    expect(logger.output()).to.eql green('a-valid-file') + '\n'
