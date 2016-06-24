@@ -10,9 +10,6 @@ report = (file, logger) ->
     logger util.colors.red file.relative
     logger util.colors.red "  #{describe error}" for error in file.ajv.errors
 
-transform = (file, enc, callback) ->
-  report file
-
 reporter = (opts) ->
   through.obj (file, enc, callback) ->
     report file, opts.logger

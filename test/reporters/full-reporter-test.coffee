@@ -1,5 +1,4 @@
 chai  = require 'chai'
-es    = require 'event-stream'
 gutil = require 'gulp-util'
 
 logger = require '../support/test-logger'
