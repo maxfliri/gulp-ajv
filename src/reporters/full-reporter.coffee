@@ -11,7 +11,6 @@ report = (file, logger) ->
     logger util.colors.red "  #{describe error}" for error in file.ajv.errors
 
 reporter = (opts = {}) ->
-  console.log opts
   through.obj (file, enc, callback) ->
     report file, (opts.logger || util.log)
     callback null, file
