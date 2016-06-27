@@ -1,7 +1,10 @@
 chai  = require 'chai'
 gutil = require 'gulp-util'
+es    = require 'event-stream'
 
 logger = require '../support/test-logger'
+aFile = require '../support/file-builder'
+
 fullReporter = require '../../src/reporters/full-reporter'
 
 expect = chai.expect
@@ -41,3 +44,18 @@ describe 'full-reporter', ->
                                    #{red('  first error')}
                                    #{red('  second error')}
                                    """
+
+  it 'should pass files through', (done) ->
+    files = [
+      aFile(path: 'a', valid: true),
+      aFile(path: 'b', valid: false)
+    ]
+
+    streamed = []
+
+    es.readArray(files)
+      .pipe(fullReporter(logger: logger))
+      .on('data', (file) -> streamed.push file)
+      .on 'end', ->
+        expect(streamed).to.eql files
+        done()

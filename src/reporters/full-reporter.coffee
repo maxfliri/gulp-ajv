@@ -13,6 +13,6 @@ report = (file, logger) ->
 reporter = (opts) ->
   through.obj (file, enc, callback) ->
     report file, opts.logger
-
+    callback null, file
 
 module.exports = reporter
