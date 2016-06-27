@@ -10,9 +10,10 @@ report = (file, logger) ->
     logger util.colors.red file.relative
     logger util.colors.red "  #{describe error}" for error in file.ajv.errors
 
-reporter = (opts) ->
+reporter = (opts = {}) ->
+  console.log opts
   through.obj (file, enc, callback) ->
-    report file, opts.logger
+    report file, (opts.logger || util.log)
     callback null, file
 
 module.exports = reporter
