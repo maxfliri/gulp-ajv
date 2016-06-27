@@ -2,12 +2,9 @@ chai  = require 'chai'
 es    = require 'event-stream'
 gutil = require 'gulp-util'
 
-fail = require '../../src/fail/fail'
+aFile = require '../support/file-builder'
 
-aFile = (opts) ->
-  f = new gutil.File(path: opts.path || 'anypath')
-  f.ajv = { valid: Boolean(opts.valid) }
-  f
+fail = require '../../src/fail/fail'
 
 describe 'fail', ->
   it 'should emit an error when some files are invalid', (done) ->
