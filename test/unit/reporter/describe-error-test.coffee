@@ -1,6 +1,6 @@
 chai = require 'chai'
 
-desc = require '../../../src/reporters/describe-error'
+desc = require '../../../src/reporter/describe-error'
 
 expect = chai.expect
 

@@ -5,7 +5,7 @@ es    = require 'event-stream'
 logger = require '../support/test-logger'
 aFile = require '../support/file-builder'
 
-fullReporter = require '../../../src/reporters/full-reporter'
+createReporter = require '../../../src/reporter/reporter'
 
 expect = chai.expect
 
@@ -20,7 +20,7 @@ describe 'full-reporter', ->
     valid_file = new gutil.File(path: 'a-valid-file')
     valid_file.ajv = { valid: true }
 
-    reporter = fullReporter(logger: logger)
+    reporter = createReporter(logger: logger)
 
     reporter.write(valid_file)
 
@@ -35,7 +35,7 @@ describe 'full-reporter', ->
         { message: 'second error' }
       ]
 
-    reporter = fullReporter(logger: logger)
+    reporter = createReporter(logger: logger)
 
     reporter.write(file)
 
@@ -54,7 +54,7 @@ describe 'full-reporter', ->
     streamed = []
 
     es.readArray(files)
-      .pipe(fullReporter(logger: logger))
+      .pipe(createReporter(logger: logger))
       .on('data', (file) -> streamed.push file)
       .on 'end', ->
         expect(streamed).to.eql files
