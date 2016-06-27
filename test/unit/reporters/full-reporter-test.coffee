@@ -5,7 +5,7 @@ es    = require 'event-stream'
 logger = require '../support/test-logger'
 aFile = require '../support/file-builder'
 
-fullReporter = require '../../src/reporters/full-reporter'
+fullReporter = require '../../../src/reporters/full-reporter'
 
 expect = chai.expect
 

@@ -3,7 +3,7 @@ es    = require 'event-stream'
 fs    = require 'fs'
 gutil = require 'gulp-util'
 
-ajv  = require '../src/gulp-ajv'
+ajv  = require '../../src/gulp-ajv'
 
 expect = chai.expect
 

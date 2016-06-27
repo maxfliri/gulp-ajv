@@ -4,7 +4,7 @@ gutil = require 'gulp-util'
 
 aFile = require '../support/file-builder'
 
-fail = require '../../src/fail/fail'
+fail = require '../../../src/fail/fail'
 
 describe 'fail', ->
   it 'should emit an error when some files are invalid', (done) ->
