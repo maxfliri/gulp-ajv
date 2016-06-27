@@ -18,4 +18,7 @@ gulpAjv = (schemaFile, encoding = 'utf8') ->
 
     through.obj transform
 
+gulpAjv.fullReporter = require('./reporter/reporter')
+gulpAjv.fail = require('./fail/fail')
+
 module.exports = gulpAjv
