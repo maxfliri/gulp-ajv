@@ -41,8 +41,8 @@ describe 'full-reporter', ->
 
     expect(logger.output()).to.eql """
                                    #{red('an-invalid-file')}
-                                   #{red('  first error')}
-                                   #{red('  second error')}
+                                   #{red('  [root] first error')}
+                                   #{red('  [root] second error')}
                                    """
 
   it 'should pass files through', (done) ->
