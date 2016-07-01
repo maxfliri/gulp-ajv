@@ -1,0 +1,11 @@
+{
+  "name": "gulp-ajv",
+  "version": "0.5.0",
+  "repository": "https://github.com/maxfliri/gulp-ajv",
+  "authors": [
+    {
+      "name": "Massimiliano Fliri",
+      "email": "massimiliano.fliri@gmail.com"
+    }
+  ]
+}

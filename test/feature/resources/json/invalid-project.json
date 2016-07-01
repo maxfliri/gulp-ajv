@@ -1,0 +1,13 @@
+{
+  "name": "invalid",
+  "version": "12-1",
+  "repository": "github",
+  "releaseDate": "2016-07-01",
+  "authors": [
+    {
+      "name": "Ivan Dil",
+      "website": "htp:\\mywebsite",
+      "twitter": "iader9367"
+    }
+  ]
+}
