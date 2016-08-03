@@ -1,5 +1,4 @@
 chai  = require 'chai'
-gutil = require 'gulp-util'
 es    = require 'event-stream'
 
 logger = require '../support/test-logger'
@@ -17,8 +16,7 @@ describe 'full-reporter', ->
     logger.clear()
 
   it 'should report valid files', () ->
-    valid_file = new gutil.File(path: 'a-valid-file')
-    valid_file.ajv = { valid: true }
+    valid_file = aFile(path: 'a-valid-file', valid: true)
 
     reporter = createReporter(logger: logger)
 
@@ -27,13 +25,10 @@ describe 'full-reporter', ->
     expect(logger.output()).to.eql green('a-valid-file')
 
   it 'should report invalid files with errors', () ->
-    file = new gutil.File(path: 'an-invalid-file')
-    file.ajv =
-      valid: false
-      errors: [
-        { message: 'first error' }
-        { message: 'second error' }
-      ]
+    file = aFile(path: 'an-invalid-file', valid: false, errors: [
+      { message: 'first error' }
+      { message: 'second error' }
+    ])
 
     reporter = createReporter(logger: logger)
 
