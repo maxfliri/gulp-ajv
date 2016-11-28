@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Gulp plugin for ajv JSON schema validator",
   "dependencies": {
-    "ajv": "^3.7.0",
+    "ajv": "^4.9.0",
     "coffee-script": "^1.10.0",
     "gulp-util": "^3.0.7",
     "through2": "^2.0.1"
@@ -12,9 +12,9 @@
     "chai": "^3.5.0",
     "event-stream": "^3.3.2",
     "gulp": "^3.9.1",
-    "gulp-debug": "^2.1.2",
-    "gulp-mocha": "^2.2.0",
-    "mocha": "^2.4.5",
+    "gulp-debug": "^3.0.0",
+    "gulp-mocha": "^3.0.1",
+    "mocha": "^3.2.0",
     "run-sequence": "^1.2.2"
   },
   "main": "./src/gulp-ajv.coffee",
