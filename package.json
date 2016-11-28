@@ -1,6 +1,6 @@
 {
   "name": "gulp-ajv",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Gulp plugin for ajv JSON schema validator",
   "dependencies": {
     "ajv": "^4.9.0",
