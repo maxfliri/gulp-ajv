@@ -12,12 +12,14 @@
     "chai": "^3.5.0",
     "event-stream": "^3.3.2",
     "gulp": "^3.9.1",
+    "gulp-coffee": "^2.3.3",
     "gulp-debug": "^3.0.0",
     "gulp-mocha": "^3.0.1",
+    "gulp-sourcemaps": "^1.9.1",
     "mocha": "^3.2.0",
     "run-sequence": "^1.2.2"
   },
-  "main": "./src/gulp-ajv.coffee",
+  "main": "./lib/gulp-ajv.js",
   "author": "Massimiliano Fliri",
   "license": "MIT",
   "repository": {

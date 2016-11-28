@@ -1,6 +1,9 @@
-gulp  = require 'gulp'
-mocha = require 'gulp-mocha'
-sequence = require 'run-sequence'
+gulp = require 'gulp'
+
+coffee     = require 'gulp-coffee'
+mocha      = require 'gulp-mocha'
+sequence   = require 'run-sequence'
+sourcemaps = require 'gulp-sourcemaps'
 
 gulp.task 'unit-tests', ->
   gulp.src(['test/unit/**/*.coffee'], read: false)
@@ -13,4 +16,12 @@ gulp.task 'feature-tests', ->
 gulp.task 'test', (done) ->
   sequence('unit-tests', 'feature-tests', done)
 
-gulp.task 'default', ['test']
+gulp.task 'compile', ->
+  gulp.src('./src/**/*.coffee')
+    .pipe(sourcemaps.init())
+    .pipe(coffee())
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('./lib'));
+
+gulp.task 'default', (done) ->
+  sequence('compile', 'test', done)
