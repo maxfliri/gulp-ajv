@@ -1,6 +1,7 @@
 gulp = require 'gulp'
 
 coffee     = require 'gulp-coffee'
+del        = require 'del'
 mocha      = require 'gulp-mocha'
 sequence   = require 'run-sequence'
 sourcemaps = require 'gulp-sourcemaps'
@@ -23,5 +24,8 @@ gulp.task 'compile', ->
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./lib'));
 
+gulp.task 'clean', ->
+  del ['lib/**/*']
+
 gulp.task 'default', (done) ->
-  sequence('compile', 'test', done)
+  sequence('clean', 'compile', 'test', done)
